@@ -3,8 +3,6 @@ dependency:
   name: galaxy
 driver:
   name: docker
-lint:
-  name: yamllint
 platforms:
   - name: centos7-systemd-docker
     image: centos/systemd
@@ -25,7 +23,6 @@ provisioner:
 scenario:
   name: default
   test_sequence:
-    - lint
     - destroy
     - dependency
     - syntax
@@ -41,5 +38,3 @@ verifier:
   directory: ../tests
   options:
     verbose: true
-  lint:
-    name: flake8
